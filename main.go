@@ -36,6 +36,7 @@ var v = `
 `
 
 func main() {
+	fmt.Println("Starting EchoServer...")
 	err := http.ListenAndServe(":80", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		headers := map[string]any{
 			"Proto": r.Proto,
@@ -59,6 +60,6 @@ func main() {
 		fmt.Fprint(w, log)
 	}))
 	if err != nil {
-		log.Printf("error when running the server: %s", err)
+		log.Printf("error running EchoServer: %s", err)
 	}
 }
