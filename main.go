@@ -7,34 +7,6 @@ import (
 	"net/http"
 )
 
-var v = `
-	2023/03/17 17:13:47 request received from: &http.Request{
-	  Method:"GET",
-		URL:(*url.URL)(0xc000196000),
-		Proto:"HTTP/1.1",
-		ProtoMajor:1,
-		ProtoMinor:1,
-		Header:http.Header{"Accept":[]string{"*/*"},
-		"User-Agent":[]string{"curl/7.79.1"}},
-		Body:http.noBody{},
-		GetBody:(func() (io.ReadCloser, error))(nil),
-		ContentLength:0,
-		TransferEncoding:[]string(nil),
-		Close:false,
-		Host:"example.com",
-		Form:url.Values(nil),
-		PostForm:url.Values(nil),
-		MultipartForm:(*multipart.Form)(nil),
-		Trailer:http.Header(nil),
-		RemoteAddr:"127.0.0.1:53501",
-		RequestURI:"/",
-		TLS:(*tls.ConnectionState)(nil),
-		Cancel:(<-chan struct {})(nil),
-		Response:(*http.Response)(nil),
-		ctx:(*context.cancelCtx)(0xc000184050),
-	}
-`
-
 func main() {
 	fmt.Println("Starting EchoServer...")
 	err := http.ListenAndServe(":80", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
