@@ -4,9 +4,9 @@ GOBIN=$(shell go env GOPATH)/bin
 run:
 	go run main.go
 
+VERSION=0.0.3
 release:
-	docker build -t vingarcia/echoserver:latest .
-	docker push vingarcia/echoserver:latest
+	docker buildx build --push --platform linux/amd64,linux/arm64 -t vingarcia/echoserver:$(VERSION) .
 
 test: setup
 	$(GOBIN)/richgo test $(path) $(args)
