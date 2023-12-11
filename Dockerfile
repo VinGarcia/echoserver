@@ -11,10 +11,10 @@ FROM alpine:latest
 ARG USER=nonroot
 
 # Create the non root user
-RUN adduser -D $USER
+RUN adduser -D $USER -u 1000
 
 COPY --from=builder /api /api
 
-USER $USER
+USER 1000
 
 CMD /api

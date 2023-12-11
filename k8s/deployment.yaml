@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
         - name: echoserver
-          image: vingarcia/echoserver:0.0.3
+          image: vingarcia/echoserver:0.0.7
           ports:
             - containerPort: 80

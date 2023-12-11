@@ -4,11 +4,11 @@ GOBIN=$(shell go env GOPATH)/bin
 run:
 	go run main.go
 
-VERSION=0.0.4
+VERSION=0.0.7
 release:
 	- docker buildx create --name echoserver-builder
 	docker buildx use echoserver-builder
-	- docker buildx build --push --platform=linux/amd64 --tag vingarcia/echoserver:$(VERSION) .
+	- docker buildx build --push --platform=linux/arm64,linux/amd64 --tag vingarcia/echoserver:$(VERSION) .
 	- docker buildx rm echoserver-builder
 
 test: setup
