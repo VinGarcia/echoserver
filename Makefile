@@ -1,6 +1,9 @@
 
 GOBIN=$(shell go env GOPATH)/bin
 
+-include config.env
+export
+
 run:
 	go run main.go
 
